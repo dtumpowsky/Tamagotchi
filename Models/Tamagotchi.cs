@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
 
-namespace Tomagotchi.Models
+namespace Tamagotchi.Models
 {
     public class Attributes
     {
@@ -28,10 +28,11 @@ namespace Tomagotchi.Models
             return _food;
         }
 
-        public int GetTomaInfo()
+        public int AddFood()
         {
-            return _food + _attention + _sleep;
+            return Add(GetFood() +1);
         }
+
 
         public void SetAttention(int newAttention)
         {
@@ -41,6 +42,10 @@ namespace Tomagotchi.Models
         {
             return _attention;
         }
+        public int AddAttention()
+        {
+            return Add(GetAttention() +1);
+        }
 
         public void SetSleep(int newSleep)
         {
@@ -49,6 +54,10 @@ namespace Tomagotchi.Models
         public int GetSleep()
         {
             return _sleep;
+        }
+        public int AddSleep()
+        {
+            return Add(GetSleep() +1);
         }
     }
 }

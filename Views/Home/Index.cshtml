@@ -7,23 +7,29 @@
 <div class= 'container'>
 <div class= 'jumbotron'>
 <body>
-<h1>Job Board:</h1>
+<h1>Tamagotchi:</h1>
 </div>
 <ul>
-  @{var jobNumber = 0;}
-  @foreach(var tomagotchi in Model)
+  @foreach(var tama in Model)
   {
-  jobNumber++;
   <br>
-  <li><strong>@job.Get</strong><br>
-  @job.GetName()<br>
-  @job.GetDescription()<br>
-  @job.GetSalary()<br>
-  @job.GetContact().GetContactInfo()<br>
+  <li><strong>@tama.GetName()</strong>
+  <br>
+  @tama.GetAttributes().GetFood()
+  <br>
+  @tama.GetAttributes().GetAttention()
+  <br>
+  @tama.GetAttributes().GetSleep()
   </li>
   }
 </ul>
-<p><a href="/jobs/new">Add another job.</a></p>
+
+@foreach
+<button type="click">Feed</button>
+<button type="click">Play</button>
+<button type="click">Rest</button>
+<button type="click">Let Time Pass</button>
+<p><a href="/tamagotchi/new">Create your Tamagotchi.</a></p>
 </body>
 </div>
 </html>

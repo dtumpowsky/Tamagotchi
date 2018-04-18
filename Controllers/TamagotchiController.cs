@@ -1,40 +1,40 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Tomagotchi.Models;
+using Tamagotchi.Models;
 using System;
 
-namespace Tomagotchi.Controllers
+namespace Tamagotchi.Controllers
 {
     public class HomeController : Controller
     {
         [HttpGet("/")]
         public ActionResult Index()
         {
-            List<TomaName> yourTomagotchi = TomaName.GetAll();
-            return View(yourTomagotchi);
+            List<TamaName> yourTamagotchi = TamaName.GetAll();
+            return View(yourTamagotchi);
         }
 
         [HttpGet("/items/{id}")]
         public ActionResult Details(int id)
         {
-            TomaName tomagotchi = TomaName.Find(id);
-            return View(tomagotchi);
+            TamaName Tamagotchi = TamaName.Find(id);
+            return View(Tamagotchi);
         }
 
-        [HttpGet("/tomagotchi/new")]
+        [HttpGet("/tamagotchi/new")]
         public ActionResult CreateForm()
         {
             return View();
         }
 
-        [HttpPost("/tomagotchi")]
+        [HttpPost("/tamagotchi")]
         public ActionResult Create()
         {
           Attributes newAttribute = new Attributes(1, 1, 1);
-          TomaName newToma = new TomaName(Request.Form["new-name"], newAttribute);
+          TamaName newTama = new TamaName(Request.Form["new-name"], newAttribute);
 
-          List<TomaName> allToma = TomaName.GetAll();
-          return View("Index", allToma);
+          List<TamaName> allTama = TamaName.GetAll();
+          return View("Index", allTama);
         }
     }
 }

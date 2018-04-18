@@ -2,22 +2,23 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
 
-namespace Tomagotchi.Models
+namespace Tamagotchi.Models
 {
-    public class TomaName
+    public class TamaName
     {
         private string _name;
         private int _id;
         private Attributes _attributes;
-        private static List<TomaName> _instances = new List<TomaName> {};
+        private static List<TamaName> _instances = new List<TamaName> {};
 
 
-        public TomaName(string Name, Attributes attributes)
+        public TamaName(string Name, Attributes attributes)
         {
             _name = Name;
+            _attributes = attributes;
             _instances.Add(this);
             _id = _instances.Count;
-            _attributes = attributes;
+
         }
 
         public void SetName(string newName)
@@ -29,7 +30,7 @@ namespace Tomagotchi.Models
             return _name;
         }
 
-        public Attributes GetAttribute()
+        public Attributes GetAttributes()
         {
           return _attributes;
         }
@@ -38,13 +39,15 @@ namespace Tomagotchi.Models
         {
             return _id;
         }
-        public static List<TomaName> GetAll()
+        public static List<TamaName> GetAll()
         {
             return _instances;
         }
-        public static TomaName Find(int searchId)
+        public static TamaName Find(int searchId)
         {
             return _instances[searchId-1];
         }
+
+
     }
 }
