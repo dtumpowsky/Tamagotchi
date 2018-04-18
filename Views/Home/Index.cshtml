@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Job Board</title>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+</head>
+<div class= 'container'>
+<div class= 'jumbotron'>
+<body>
+<h1>Job Board:</h1>
+</div>
+<ul>
+  @{var jobNumber = 0;}
+  @foreach(var tomagotchi in Model)
+  {
+  jobNumber++;
+  <br>
+  <li><strong>@job.Get</strong><br>
+  @job.GetName()<br>
+  @job.GetDescription()<br>
+  @job.GetSalary()<br>
+  @job.GetContact().GetContactInfo()<br>
+  </li>
+  }
+</ul>
+<p><a href="/jobs/new">Add another job.</a></p>
+</body>
+</div>
+</html>
